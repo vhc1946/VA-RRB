@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../bin/gui/styles/main-styles.css"/>
+        <link rel="stylesheet" href="../bin/repo/gui/styles/modules/vg-floatviews.css"/>
+        <style>
+          html,body{
+            height:100vh;
+            width:100%;
+          }
+        </style>
+    </head>
+    <body>
+      <div id="preview-center" class="vg-float-frame">
+        <div class="vg-float-view" title="Job Preview">
+          <div>
+            <div class="preview-header">JOB OVERVIEW</div>
+            <div class="preview-area-body">
+                <div class="preview-area-client">
+                    <label>Client Name:</label><div id="preview-value-client"></div>
+                    <label>Client Street:</label><div id="preview-value-street"></div>
+                    <label>Client City:</label><div id="preview-value-longcity"></div>
+                    <label>Contact Phone:</label><div id="preview-value-phone1"></div>
+                    <label>Contact Email:</label><div id="preview-value-email"></div>
+                </div>
+                <div class="preview-area-job">
+                    <label style="color:red">Job Number:</label><input id="job-value-jobnum">
+                    <label>Customer Code:</label><input id="job-value-custcode">
+                    <label style="color:red">Start Date:</label><input id="job-value-strtdate" type="date">
+                    <label>Compl Date:</label><input id="job-value-compdate" type="date"> 
+                    <div id="info-text">*Job Number and Start Date are required!</div>                       
+                </div>
+                <div class="preview-area-contracts">
+                  <div id=contracts-text>List of contracts that boards will be created for:  </div>
+                  <div class='preview-contract-list'>
+
+                    </div>
+                </div>
+                <div class="preview-area-buttons">
+                    <div id="preview-value-cons"></div>
+                    <div class="flat-action-button" id="board-job-submit">SUBMIT</div>
+                    <div class="flat-action-button" id="board-job-rebuild">REBUILD</div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <img id="vg-float-frame-close" src="../bin/repo/assets/icons/cross.png"/>
+      </div>
+
+
+      <div class="bc-table-space">
+        <div id="sold-space">
+          <div class="list-header">Sold Jobs</div>
+          <div id="bc-sold-table"></div>
+        </div>
+        <div id="inprog-space">
+          <div class="list-header">Jobs in Progress</div>
+          <div id="bc-inprog-table"></div>
+        </div>
+      </div>
+    </body>
+    <script>
+      require('../bin/repo/gui/js/tools/vg-partials.js').writePart(__dirname + '/parts/vg-heads.txt',document.head);
+      require('../bin/repo/gui/js/tools/vg-partials.js').writePart(__dirname + '/parts/vg-notelist.txt',document.body, 'vg-toast-tr', true);
+    </script>
+    <script src='../bin/gui/main.js'></script>
+</html>

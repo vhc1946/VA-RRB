@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <img src="../bin/repo/assets/logos/Splash Logo.png" id="splash-logo">
+    </body>
+    <script>
+      var {ipcRenderer}=require('electron');
+      var RROOT = '../bin/repo/';
+      var vpartials = require('../bin/repo/gui/js/tools/vg-partials.js');
+
+      vpartials.writePart(__dirname + '/parts/vg-heads.txt',document.head);
+      vpartials.writePart(__dirname + '/parts/vg-notelist.txt',document.body, 'vg-toast-tr', true);
+      vpartials.writePart(__dirname + '/../bin/repo/gui/views/login-form.txt',document.body, 'login-box', true);
+      
+      require('../bin/repo/gui/js/modules/vg-titlebar.js');
+      require('../bin/repo/gui/js/modules/login.js');
+    </script>
+</html>
+

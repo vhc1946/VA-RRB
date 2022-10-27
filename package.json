@@ -1,0 +1,23 @@
+{
+  "name": "BoardTool",
+  "version": "1.0.0",
+  "description": "Vogel Board Tool",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app": "electron app.js",
+    "package-app": "electron-packager ./ RESinstall-Board --overwrite --asar=true --platform=win32 --arch=ia32 --icon=./repo/assets/icons/RRQuoter.ico --prune=true --out=../../../../documentation/res_board_tool/releases --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"WO Email\""
+  },
+  "author": "cmv",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^18.2.0",
+    "electron-packager": "^15.5.1",
+    "fs-extra": "^10.1.0",
+    "generate-docx": "^2.1.1",
+    "jquery": "^3.6.0",
+    "pdf-lib": "^1.17.1",
+    "request": "^2.88.2",
+    "xlsx-populate": "^1.21.0"
+  }
+}
