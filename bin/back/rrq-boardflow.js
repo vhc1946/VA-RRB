@@ -92,27 +92,38 @@ var GETjobsinprog=()=>{
           let loaded = 0;
           if(cfiles.length<=0){jloaded++}
           for(let y=0;y<cfiles.length;y++){
-            PARSEexcel(path.join(iproot,jfolders[x],'contracts',cfiles[y])).then(
-              (cntrct)=>{
-                jobs.folder = path.join(iproot,jfolders[x])
-                jobs.cons = cntrct.cons;
-                jobs.customer = cntrct.customer;
-                jobs.contractfiles.push(cfiles[y]);
-                jobs.contracts.push(cntrct);
-                jobs.jobnum = cntrct.jobnum;
-                jobs.strtdate = cntrct.strtdate;
-                jlist.push(jobs);
-                loaded++;
-                if(toload==loaded){
-                  jloaded++;
-                  //console.log(jtoload,jloaded)
-                  if(jtoload==jloaded){
-                    //console.log(jlist);
-                    return res(jlist);
+            let conpath = path.join(sjroot,jfolders[x],'contracts',cfiles[y]);
+            if(conpath.includes('.xlsx')||conpath.includes('.xlsm')){
+              PARSEexcel(path.join(iproot,jfolders[x],'contracts',cfiles[y])).then(
+                (cntrct)=>{
+                  jobs.folder = path.join(iproot,jfolders[x])
+                  jobs.cons = cntrct.cons;
+                  jobs.customer = cntrct.customer;
+                  jobs.contractfiles.push(cfiles[y]);
+                  jobs.contracts.push(cntrct);
+                  jobs.jobnum = cntrct.jobnum;
+                  jobs.strtdate = cntrct.strtdate;
+                  jlist.push(jobs);
+                  loaded++;
+                  if(toload==loaded){
+                    jloaded++;
+                    //console.log(jtoload,jloaded)
+                    if(jtoload==jloaded){
+                      //console.log(jlist);
+                      return res(jlist);
+                    }
                   }
                 }
+              );
+            }else{
+              loaded++;
+              if(toload==loaded){
+                jloaded++;
+                if(jtoload==jloaded){
+                  return res(jlist);
+                }
               }
-            );
+            }
           }
         }
       }
