@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "app": "electron app.js",
-    "package-app": "electron-packager ./ RESinstall-Board --overwrite --asar=true --platform=win32 --arch=ia32 --icon=./repo/assets/icons/RRQuoter.ico --prune=true --out=../../../../documentation/res_board_tool/releases --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"WO Email\""
+    "package-app": "electron-packager ./ RESinstall-Board --overwrite --asar=true --platform=win32 --arch=ia32 --icon=./repo/assets/icons/clipboard-01.ico --prune=true --out=../../../../documentation/res_board_tool/releases --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"WO Email\""
   },
   "author": "cmv",
   "license": "ISC",
